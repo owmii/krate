@@ -11,7 +11,7 @@ public class Configs {
 
     public static void register() {
         final String path = Config.createConfigDir(Krate.MOD_ID);
-        Config.registerCommon(GENERAL_SPEC, Krate.MOD_ID + "/general_common.toml");
+        // Config.registerCommon(GENERAL_SPEC, Krate.MOD_ID + "/general_common.toml");
     }
 
     static {

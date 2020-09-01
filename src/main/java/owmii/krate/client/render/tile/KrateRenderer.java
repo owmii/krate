@@ -28,16 +28,13 @@ public class KrateRenderer extends AbstractTileRenderer<KrateTile> {
         matrix.scale(1.0f, -1.0f, -1.0f);
         MODEL.render(te, this, matrix, rtb, light, ov);
         matrix.pop();
-
         matrix.push();
         if (te.visualize) {
-            IVertexBuilder ivertexbuilder = rtb.getBuffer(RenderType.getLines());
+            IVertexBuilder buffer = rtb.getBuffer(RenderType.getLines());
             AxisAlignedBB box = te.getBox().geAxis();
-            WorldRenderer.drawBoundingBox(matrix, ivertexbuilder, box.minX, box.minY, box.minZ, box.maxX, box.maxY, box.maxZ, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F);
+            WorldRenderer.drawBoundingBox(matrix, buffer, box.minX, box.minY, box.minZ, box.maxX, box.maxY, box.maxZ, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F, 1.0F);
         }
         matrix.pop();
-
-
     }
 
     @Override

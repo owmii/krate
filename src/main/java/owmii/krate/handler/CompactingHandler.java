@@ -9,31 +9,41 @@ import net.minecraft.world.World;
 import owmii.lib.logistics.inventory.AbstractContainer;
 import owmii.lib.util.Server;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class CompactingHandler {
     private static final Map<IItemProvider, ItemStack> CACHE_2X2 = new HashMap<>();
     private static final Map<IItemProvider, ItemStack> CACHE_3X3 = new HashMap<>();
+    private static final Set<IItemProvider> CACHE_EMPTY_2X2 = new HashSet<>();
+    private static final Set<IItemProvider> CACHE_EMPTY_3X3 = new HashSet<>();
 
     public static ItemStack get(World world, ItemStack stack, boolean small) {
         if (!stack.isEmpty()) {
             if (small) {
                 if (CACHE_2X2.containsKey(stack.getItem())) {
                     return CACHE_2X2.get(stack.getItem());
+                } else if (CACHE_EMPTY_2X2.contains(stack.getItem())) {
+                    return ItemStack.EMPTY;
                 }
                 ItemStack resStack = result(world, stack, true);
-                if (!resStack.isEmpty()) {
+                if (resStack.isEmpty()) {
+                    CACHE_EMPTY_2X2.add(stack.getItem());
+                    return ItemStack.EMPTY;
+                } else {
                     CACHE_2X2.put(stack.getItem(), resStack.copy());
                     return resStack.copy();
                 }
             } else {
                 if (CACHE_3X3.containsKey(stack.getItem())) {
                     return CACHE_3X3.get(stack.getItem());
+                } else if (CACHE_EMPTY_3X3.contains(stack.getItem())) {
+                    return ItemStack.EMPTY;
                 }
                 ItemStack resStack = result(world, stack, false);
-                if (!resStack.isEmpty()) {
+                if (resStack.isEmpty()) {
+                    CACHE_EMPTY_3X3.add(stack.getItem());
+                    return ItemStack.EMPTY;
+                } else {
                     CACHE_3X3.put(stack.getItem(), resStack.copy());
                     return resStack.copy();
                 }
@@ -55,5 +65,12 @@ public class CompactingHandler {
             }
         }
         return ItemStack.EMPTY;
+    }
+
+    public static void clearCache() {
+        CACHE_2X2.clear();
+        CACHE_3X3.clear();
+        CACHE_EMPTY_2X2.clear();
+        CACHE_EMPTY_3X3.clear();
     }
 }

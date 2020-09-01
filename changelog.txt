@@ -1,2 +1,6 @@
+0.0.2
+- Adjusted krates block hardness.
+- Improved compacting handler cache for more performance.
+
 0.0.1
 - First release.

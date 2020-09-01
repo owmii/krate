@@ -76,7 +76,6 @@ public class KrateContainer extends AbstractTileContainer<KrateTile> {
                 slot.onSlotChanged();
             }
         }
-
         return stack;
     }
 }
