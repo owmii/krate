@@ -10,7 +10,7 @@ displayName="Krate"
 displayURL="https://www.curseforge.com/minecraft/mc-mods/krate"
 authors="owmii"
 description='''
-Krate, a storage mod ;).
+Better than chest with filters and useful upgrades.
 '''
 
 [[dependencies.krate]]
