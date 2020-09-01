@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	" n ",
+	"nkn",
+	" n "
+  ],
+  "key": {
+	"n": {
+	  "tag": "minecraft:planks"
+	},
+	"k": {
+	  "item": "krate:krate_small"
+	}
+  },
+  "result": {
+	"item": "krate:empty_upgrade",
+	"count": 2
+  }
+}

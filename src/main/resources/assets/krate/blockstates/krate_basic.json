@@ -1,0 +1,7 @@
+{
+  "variants": {
+	"": {
+	  "model": "krate:block/krate_basic"
+	}
+  }
+}

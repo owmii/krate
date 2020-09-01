@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"sss",
+	"t t",
+	"sss"
+  ],
+  "key": {
+	"s": {
+	  "item": "minecraft:oak_slab"
+	},
+	"t": {
+	  "item": "minecraft:stripped_oak_log"
+	}
+  },
+  "result": {
+	"item": "krate:krate_small"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"nkn",
+	"s s",
+	"nkn"
+  ],
+  "key": {
+	"n": {
+	  "tag": "forge:ingots/iron"
+	},
+	"k": {
+	  "item": "krate:krate_basic"
+	},
+	"s": {
+	  "item": "minecraft:stripped_oak_log"
+	}
+  },
+  "result": {
+	"item": "krate:krate_big"
+  }
+}

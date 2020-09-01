@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"sks",
+	"ntn",
+	"sks"
+  ],
+  "key": {
+	"s": {
+	  "tag": "forge:rods/wooden"
+	},
+	"n": {
+	  "tag": "forge:string"
+	},
+	"k": {
+	  "item": "krate:krate_small"
+	},
+	"t": {
+	  "item": "minecraft:iron_bars"
+	}
+  },
+  "result": {
+	"item": "krate:filter"
+  }
+}

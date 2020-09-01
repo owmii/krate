@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"nkn",
+	"s s",
+	"nkn"
+  ],
+  "key": {
+	"k": {
+	  "tag": "forge:storage_blocks/iron"
+	},
+	"s": {
+	  "item": "krate:krate_big"
+	},
+	"n": {
+	  "tag": "forge:ingots/iron"
+	}
+  },
+  "result": {
+	"item": "krate:krate_large"
+  }
+}

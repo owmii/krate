@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+	{
+	  "item": "minecraft:shulker_shell"
+	},
+	{
+	  "item": "minecraft:purpur_block"
+	},
+	{
+	  "item": "minecraft:purpur_block"
+	},
+	{
+	  "item": "krate:empty_upgrade"
+	}
+  ],
+  "result": {
+	"item": "krate:shulker_upgrade"
+  }
+}

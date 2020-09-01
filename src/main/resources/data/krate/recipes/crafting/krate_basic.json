@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"nkn",
+	"k k",
+	"nkn"
+  ],
+  "key": {
+	"n": {
+	  "tag": "forge:nuggets/iron"
+	},
+	"k": {
+	  "item": "krate:krate_small"
+	}
+  },
+  "result": {
+	"item": "krate:krate_basic"
+  }
+}
