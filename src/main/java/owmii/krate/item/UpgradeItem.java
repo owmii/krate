@@ -11,6 +11,6 @@ public class UpgradeItem extends ItemBase {
 
     @Override
     public Rarity getRarity(ItemStack stack) {
-        return this == Itms.EMPTY_UPGRADE ? Rarity.COMMON : Rarity.UNCOMMON;
+        return Rarity.UNCOMMON;
     }
 }

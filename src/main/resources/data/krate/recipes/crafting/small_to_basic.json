@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+	"nkn",
+	"k k",
+	"nun"
+  ],
+  "key": {
+	"n": {
+	  "tag": "forge:nuggets/iron"
+	},
+	"k": {
+	  "item": "krate:krate_small"
+	},
+	"u": {
+	  "item": "krate:empty_upgrade"
+	}
+  },
+  "result": {
+	"item": "krate:small_to_basic"
+  }
+}

@@ -10,6 +10,9 @@
   "item.krate.shulker_upgrade": "Shulker Upgrade",
   "item.krate.hopper_upgrade": "Hopper Upgrade",
   "item.krate.compacting_upgrade": "Compacting Upgrade",
+  "item.krate.small_to_basic": "Krate Upgrade (Small to Basic)",
+  "item.krate.basic_to_big": "Krate Upgrade (Basic to Big)",
+  "item.krate.big_to_large": "Krate Upgrade (Big to Large)",
   "gui.krate.facing": "Facing: ",
   "gui.krate.block": "Block: ",
   "gui.krate.down": "Down",
@@ -36,9 +39,13 @@
   "gui.krate.compacting.mode": "Compacting: ",
   "gui.krate.compacting.matrix.big": "3X3",
   "gui.krate.compacting.matrix.small": "2X2",
+  "chat.krate.upgrade.not.applicable": "This upgrade are only applicable to ",
   "info.krate.filter": "Used to filter what items pass to or from a krate inventory",
   "info.krate.hopper_upgrade": "It is an Item transfer upgrade, which allows items to be pushed/pulled from on adjacent inventory",
   "info.krate.collect_upgrade": "Krate will start collecting items in a configurable block radius",
   "info.krate.compact_upgrade": "Krate will automatically craft items into blocks, you can choose 2X2 or 3X3 crafting matrix",
-  "info.krate.shulker_upgrade": "Krate will keep its inventory items when broken"
+  "info.krate.shulker_upgrade": "Krate will keep its inventory items when broken",
+  "info.krate.small_to_basic": "Used to upgrade from small to basic krate, right-click a small krate with it to apply",
+  "info.krate.basic_to_big": "Used to upgrade from basic to big krate, right-click a basic krate with it to apply",
+  "info.krate.big_to_large": "Used to upgrade from big to large krate, right-click a big krate with it to apply"
 }

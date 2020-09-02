@@ -49,6 +49,22 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
         this.hopper = new SidedHopper(this.inv);
     }
 
+    public void copy(KrateTile other) {
+        CompoundNBT nbt = new CompoundNBT();
+        other.box.write(nbt, "item_collect");
+        this.box.read(nbt, "item_collect");
+        other.hopper.write(nbt, "item_collect");
+        this.hopper.read(nbt, "item_collect");
+        this.keepInventory = other.keepInventory;
+        this.itemTransfer = other.itemTransfer;
+        this.collect = other.collect;
+        this.compact = other.compact;
+        this.compactSleep = other.compactSleep;
+        this.smallMatrix = other.smallMatrix;
+        this.range = other.range;
+        sync();
+    }
+
     @Override
     protected void readSync(CompoundNBT nbt) {
         super.readSync(nbt);
@@ -112,14 +128,14 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
             if (this.compact && !this.compactSleep && this.ticks % 10 == 0) {
                 boolean sleep = true;
                 label:
-                for (int i = 0; i < getVariant().getInvSize(); i++) {
+                for (int i = 0; i < this.variant.getInvSize(); i++) {
                     ItemStack stack = this.inv.getStackInSlot(i);
                     ItemStack res = CompactingHandler.get(world, stack, this.smallMatrix);
                     Set<ItemStack> stacks = new HashSet<>();
                     int matrix = this.smallMatrix ? 4 : 9;
                     if (!res.isEmpty()) {
                         int sum = 0;
-                        for (int j = 0; j < getVariant().getInvSize(); j++) {
+                        for (int j = 0; j < this.variant.getInvSize(); j++) {
                             ItemStack stack2 = this.inv.getStackInSlot(j);
                             int count = stack2.getCount();
                             if (stack2.isItemEqual(stack)) {
@@ -180,7 +196,7 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
 
     private void checkUpgrades() {
         this.compactSleep = false;
-        int size = getVariant().getInvSize();
+        int size = this.variant.getInvSize();
         boolean itemTransfer = false;
         boolean collect = false;
         boolean keepInv = false;
@@ -233,7 +249,7 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
 
     @Override
     public boolean canInsert(int slot, ItemStack stack) {
-        int size = getVariant().getInvSize();
+        int size = this.variant.getInvSize();
         if (slot >= size) {
             if (slot == size || slot == size + 1) {
                 return stack.getItem() instanceof FilterItem;
@@ -250,7 +266,7 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
     }
 
     private boolean checkFilter(ItemStack stack) {
-        ItemStack filterStack = this.inv.getStackInSlot(getVariant().getInvSize());
+        ItemStack filterStack = this.inv.getStackInSlot(this.variant.getInvSize());
         if (filterStack.getItem() instanceof FilterItem) {
             FilterItem filter = (FilterItem) filterStack.getItem();
             return filter.getFilter(filterStack).checkStack(stack);
@@ -259,7 +275,7 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
     }
 
     private boolean checkPushFilter(ItemStack stack) {
-        ItemStack filterStack = this.inv.getStackInSlot(getVariant().getInvSize() + 1);
+        ItemStack filterStack = this.inv.getStackInSlot(this.variant.getInvSize() + 1);
         if (filterStack.getItem() instanceof FilterItem) {
             FilterItem filter = (FilterItem) filterStack.getItem();
             return filter.getFilter(filterStack).checkStack(stack);
@@ -269,7 +285,7 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
 
     @Override
     public boolean canExtract(int slot, ItemStack stack) {
-        return true;
+        return slot < this.variant.getInvSize();
     }
 
     @Override
