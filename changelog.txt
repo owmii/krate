@@ -1,3 +1,7 @@
+0.0.3
+- Added Krate upgrades (small to basic, basic to big, and big to large).
+- Improved big krate texture a bit.
+
 0.0.2
 - Adjusted krates block hardness.
 - Improved compacting handler cache for more performance.
