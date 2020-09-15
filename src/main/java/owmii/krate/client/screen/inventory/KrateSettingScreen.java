@@ -5,8 +5,8 @@ import net.minecraft.util.text.ITextComponent;
 import owmii.krate.Krate;
 import owmii.krate.block.KrateTile;
 import owmii.krate.network.packet.ReqKrateScreenPacket;
-import owmii.lib.client.screen.AbstractTileScreen;
 import owmii.lib.client.screen.Texture;
+import owmii.lib.client.screen.container.AbstractTileScreen;
 import owmii.lib.logistics.inventory.AbstractTileContainer;
 
 public class KrateSettingScreen<C extends AbstractTileContainer<KrateTile>> extends AbstractTileScreen<KrateTile, C> {

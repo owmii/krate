@@ -27,7 +27,7 @@ import owmii.lib.logistics.inventory.Inventory;
 
 import javax.annotation.Nullable;
 
-public class KrateBlock extends AbstractBlock<Tier> implements IWaterLoggable {
+public class KrateBlock extends AbstractBlock<Tier, KrateBlock> implements IWaterLoggable {
     private static final VoxelShape TOP = Block.makeCuboidShape(0.0D, 13.0D, 0.0D, 16.0D, 16.0D, 16.0D);
     private static final VoxelShape MID = Block.makeCuboidShape(0.5D, 0.5D, 0.5D, 15.5D, 15.5D, 15.5D);
     private static final VoxelShape BOTTOM = Block.makeCuboidShape(0.0D, 0.0D, 0.0D, 16.0D, 3.0D, 16.0D);

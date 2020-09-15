@@ -2,7 +2,7 @@ package owmii.krate.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntityType;
-import owmii.lib.block.IVariant;
+import owmii.lib.registry.IVariant;
 
 public enum Tier implements IVariant<Tier> {
     SMALL(9, 1),
@@ -36,14 +36,7 @@ public enum Tier implements IVariant<Tier> {
     }
 
     public Block getBlock() {
-        if (equals(SMALL)) {
-            return Blcks.KRATE_SMALL;
-        } else if (equals(BASIC)) {
-            return Blcks.KRATE_BASIC;
-        } else if (equals(BIG)) {
-            return Blcks.KRATE_BIG;
-        }
-        return Blcks.KRATE_LARGE;
+        return (Block) Blcks.KRATE_LARGE.byVariant(this);
     }
 
     public TileEntityType<?> getType() {

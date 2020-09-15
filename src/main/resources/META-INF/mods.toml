@@ -1,5 +1,5 @@
 modLoader="javafml" 
-loaderVersion="[33,)"
+loaderVersion="[34,)"
 issueTrackerURL="https://github.com/owmii/krate/issues"
 license="LGPLv3"
 
@@ -23,6 +23,6 @@ Better than chest with filters and useful upgrades.
 [[dependencies.krate]]
     modId="forge"
     mandatory=true
-    versionRange="[33.0.3,)"
+    versionRange="[34.0.2,)"
     ordering="NONE"
     side="BOTH"
