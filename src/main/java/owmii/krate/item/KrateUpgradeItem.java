@@ -8,6 +8,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Direction;
 import net.minecraft.util.Hand;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.util.text.TextFormatting;
@@ -33,27 +34,29 @@ public class KrateUpgradeItem extends ItemBase {
             KrateTile krate = (KrateTile) tile;
             Tier tier = krate.getVariant();
             if (this.tier.ordinal() - 1 == tier.ordinal()) {
-                if (!world.isRemote) {
-                    Inventory inv = new Inventory(krate.getInventory().getSlots());
-                    inv.deserializeNBT(krate.getInventory().serializeNBT());
-                    krate.getInventory().clear();
-                    world.setBlockState(pos, this.tier.getBlock().getDefaultState().with(BlockStateProperties.WATERLOGGED, false), 3);
-                    TileEntity tile2 = world.getTileEntity(pos);
-                    if (tile2 instanceof KrateTile) {
-                        KrateTile krate2 = (KrateTile) tile2;
-                        Inventory inv2 = krate2.getInventory();
+                Inventory inv = new Inventory(krate.getInventory().getSlots());
+                inv.deserializeNBT(krate.getInventory().serializeNBT());
+                krate.getInventory().clear();
+                world.setBlockState(pos, this.tier.getBlock().getDefaultState().with(BlockStateProperties.WATERLOGGED, false), 3);
+                TileEntity tile2 = world.getTileEntity(pos);
+                if (tile2 instanceof KrateTile) {
+                    KrateTile krate2 = (KrateTile) tile2;
+                    Inventory inv2 = krate2.getInventory();
+                    if (!world.isRemote) {
                         for (int i = 0; i < tier.getInvSize(); i++) {
-                            inv2.setStack(i, inv.getStackInSlot(i));
+                            inv2.setStackInSlot(i, inv.getStackInSlot(i));
                         }
                         int j = 0;
                         for (int i = tier.getInvSize(); i < inv.getSlots(); i++) {
-                            inv2.setStack(j + this.tier.getInvSize(), inv.getStackInSlot(i));
+                            inv2.setStackInSlot(j + this.tier.getInvSize(), inv.getStackInSlot(i));
                             j++;
                         }
                         krate2.copy(krate);
                         if (!player.isCreative()) {
                             player.getHeldItem(hand).shrink(1);
                         }
+                    } else {
+                        player.playSound(SoundEvents.BLOCK_ANCIENT_DEBRIS_PLACE, 1.0F, 1.0F);
                     }
                 }
                 return ActionResultType.SUCCESS;

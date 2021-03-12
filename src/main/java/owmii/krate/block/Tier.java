@@ -36,7 +36,7 @@ public enum Tier implements IVariant<Tier> {
     }
 
     public Block getBlock() {
-        return (Block) Blcks.KRATE_LARGE.byVariant(this);
+        return Blcks.KRATE.get(this);
     }
 
     public TileEntityType<?> getType() {

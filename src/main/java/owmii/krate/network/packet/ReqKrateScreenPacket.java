@@ -17,7 +17,7 @@ import owmii.lib.network.IPacket;
 import java.util.function.Supplier;
 
 public class ReqKrateScreenPacket implements IPacket<ReqKrateScreenPacket> {
-    private BlockPos pos;
+    private final BlockPos pos;
 
     public ReqKrateScreenPacket(BlockPos pos) {
         this.pos = pos;
@@ -46,12 +46,9 @@ public class ReqKrateScreenPacket implements IPacket<ReqKrateScreenPacket> {
                 TileEntity te = world.getTileEntity(msg.pos);
                 if (te instanceof KrateTile) {
                     BlockState state = world.getBlockState(msg.pos);
-                    NetworkHooks.openGui(player, new SimpleNamedContainerProvider((i, playerInventory, playerEntity) -> {
-                                return new KrateContainer(i, playerInventory, (KrateTile) te);
-                            }, new ItemStack(state.getBlock()).getDisplayName())
-                            , buffer -> {
-                                buffer.writeBlockPos(msg.pos);
-                            });
+                    NetworkHooks.openGui(player, new SimpleNamedContainerProvider((i, playerInventory, playerEntity) ->
+                                    new KrateContainer(i, playerInventory, (KrateTile) te), new ItemStack(state.getBlock()).getDisplayName())
+                            , buffer -> buffer.writeBlockPos(msg.pos));
                 }
             }
         });

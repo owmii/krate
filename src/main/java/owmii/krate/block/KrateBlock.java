@@ -18,7 +18,6 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import owmii.krate.client.render.tile.KrateRenderer;
 import owmii.krate.inventory.KrateContainer;
 import owmii.lib.block.AbstractBlock;
 import owmii.lib.block.AbstractTileEntity;
@@ -84,10 +83,7 @@ public class KrateBlock extends AbstractBlock<Tier, KrateBlock> implements IWate
     @Override
     @OnlyIn(Dist.CLIENT)
     public void renderByItem(ItemStack stack, MatrixStack matrix, IRenderTypeBuffer rtb, int light, int ov) {
-        matrix.push();
-        matrix.translate(0.5, 1.5, 0.5);
-        matrix.scale(1.0f, -1.0f, -1.0f);
-        KrateRenderer.MODEL.render(new KrateTile(getVariant()), new KrateRenderer(TileEntityRendererDispatcher.instance), matrix, rtb, light, ov);
-        matrix.pop();
+        final KrateTile invTe = new KrateTile(getVariant());
+        TileEntityRendererDispatcher.instance.renderItem(invTe, matrix, rtb, light, ov);
     }
 }

@@ -53,10 +53,10 @@ public class FilterContainer extends AbstractContainer {
             if (stack.isEmpty()) {
                 ItemStack copy = inventory.getItemStack().copy();
                 copy.setCount(1);
-                this.inventory.setStack(i, copy);
+                this.inventory.setStackInSlot(i, copy);
                 return ItemStack.EMPTY;
             } else {
-                this.inventory.setStack(i, ItemStack.EMPTY);
+                this.inventory.setStackInSlot(i, ItemStack.EMPTY);
                 return ItemStack.EMPTY;
             }
         }
@@ -78,7 +78,7 @@ public class FilterContainer extends AbstractContainer {
             copy.setCount(1);
             for (int i = 0; i < this.inventory.getSlots(); i++) {
                 if (this.inventory.getStackInSlot(i).isEmpty()) {
-                    this.inventory.setStack(i, copy);
+                    this.inventory.setStackInSlot(i, copy);
                     return ItemStack.EMPTY;
                 }
             }

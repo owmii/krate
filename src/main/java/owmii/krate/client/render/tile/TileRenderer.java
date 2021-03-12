@@ -1,5 +1,6 @@
 package owmii.krate.client.render.tile;
 
+import net.minecraft.block.Block;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import owmii.krate.block.Blcks;
 import owmii.krate.block.Tiles;
@@ -11,12 +12,6 @@ public class TileRenderer {
         ClientRegistry.bindTileEntityRenderer(Tiles.KRATE_BASIC, KrateRenderer::new);
         ClientRegistry.bindTileEntityRenderer(Tiles.KRATE_BIG, KrateRenderer::new);
         ClientRegistry.bindTileEntityRenderer(Tiles.KRATE_LARGE, KrateRenderer::new);
-
-        TEItemRenderer.register(
-                Blcks.KRATE_SMALL,
-                Blcks.KRATE_BASIC,
-                Blcks.KRATE_BIG,
-                Blcks.KRATE_LARGE
-        );
+        TEItemRenderer.register(Blcks.KRATE.getArr(Block[]::new));
     }
 }

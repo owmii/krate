@@ -5,7 +5,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
     }
 }
 
@@ -37,9 +37,9 @@ repositories {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:' + lib.minecraft_version + '-' + lib.forge_version
-    compileOnly fg.deobf("mezz.jei:jei-1.16.2:${lib.jei_version}:api")
-    runtimeOnly fg.deobf("mezz.jei:jei-1.16.2:${lib.jei_version}")
-    compile fg.deobf("top.theillusivec4.curios:curios-forge:${lib.minecraft_version}-${lib.curios_version}")
+    compileOnly fg.deobf("mezz.jei:jei-${lib.jei_version}:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-${lib.jei_version}")
+    compile fg.deobf("top.theillusivec4.curios:curios-forge:${lib.curios_version}")
     compile lib
 }
 

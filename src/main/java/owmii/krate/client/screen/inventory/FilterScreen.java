@@ -13,7 +13,7 @@ import owmii.krate.inventory.GhostSlot;
 import owmii.krate.item.FilterItem;
 import owmii.krate.item.Itms;
 import owmii.krate.network.packet.FilterPacket;
-import owmii.lib.client.screen.AbstractContainerScreen;
+import owmii.lib.client.screen.container.AbstractContainerScreen;
 import owmii.lib.client.screen.widget.IconButton;
 import owmii.lib.logistics.Filter;
 
@@ -24,7 +24,7 @@ public class FilterScreen extends AbstractContainerScreen<FilterContainer> {
     private IconButton clearButton = IconButton.EMPTY;
 
     private ItemStack stack = ItemStack.EMPTY;
-    private Filter filter;
+    private final Filter filter;
 
     public FilterScreen(FilterContainer screenContainer, PlayerInventory inv, ITextComponent titleIn) {
         super(screenContainer, inv, titleIn, Textures.FILTER);

@@ -3,7 +3,6 @@ package owmii.krate.block;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.util.Direction;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -119,11 +118,11 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
                 }
             }
             if (this.itemTransfer && this.ticks % 10 == 0) {
-                for (Direction side : Direction.values()) {
+                this.hopper.getActiveHoppers().forEach((side, hopper) -> {
                     LazyOptional<IItemHandler> cap = Inventory.get(world, this.pos.offset(side), side.getOpposite());
-                    cap.ifPresent(handler -> this.hopper.transfer(side, handler, 3, this::checkFilter, this::checkPushFilter,
+                    cap.ifPresent(handler -> hopper.transfer(handler, 3, this::checkFilter, this::checkPushFilter,
                             IntStream.range(this.inv.getSlots() - this.exSlots, this.inv.getSlots()).toArray()));
-                }
+                });
             }
             if (this.compact && !this.compactSleep && this.ticks % 10 == 0) {
                 boolean sleep = true;
@@ -219,7 +218,7 @@ public class KrateTile extends AbstractTickableTile<Tier, KrateBlock> implements
             if (!itemTransfer) {
                 if (this.world != null) {
                     Stack.drop(this.world, getPos(), this.inv.getStackInSlot(size + 1));
-                    this.inv.setStack(size + 1, ItemStack.EMPTY);
+                    this.inv.setStackInSlot(size + 1, ItemStack.EMPTY);
                 }
             }
             sync = true;

@@ -14,7 +14,7 @@ import owmii.krate.inventory.KrateContainer;
 import owmii.krate.network.packet.CompactingPacket;
 import owmii.krate.network.packet.ReqCollectSettingPacket;
 import owmii.krate.network.packet.ReqHopperSettingPacket;
-import owmii.lib.client.screen.AbstractTileScreen;
+import owmii.lib.client.screen.container.AbstractTileScreen;
 import owmii.lib.client.screen.widget.IconButton;
 
 public class KrateScreen extends AbstractTileScreen<KrateTile, KrateContainer> {

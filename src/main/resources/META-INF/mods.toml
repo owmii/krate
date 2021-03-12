@@ -1,5 +1,5 @@
 modLoader="javafml" 
-loaderVersion="[34,)"
+loaderVersion="[35,)"
 issueTrackerURL="https://github.com/owmii/krate/issues"
 license="LGPLv3"
 
@@ -16,13 +16,13 @@ Better than chest with filters and useful upgrades.
 [[dependencies.krate]]
     modId="lollipop"
     mandatory=true
-    versionRange="[3.1.1,)"
+    versionRange="[3.2.6,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.krate]]
     modId="forge"
     mandatory=true
-    versionRange="[34.0.2,)"
+    versionRange="[35.0.2,)"
     ordering="NONE"
     side="BOTH"

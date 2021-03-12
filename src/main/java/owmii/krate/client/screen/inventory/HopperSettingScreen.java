@@ -56,7 +56,7 @@ public class HopperSettingScreen extends KrateSettingScreen<HopperSettingContain
             final BlockState state1 = state;
             this.tabButtons[i] = addButton(new IconButton(this.guiLeft + x, this.guiTop + y, t, Textures.TAB_MAP.get(!b).get(b2), button -> {
                 Krate.NET.toServer(new ReqHopperSettingPacket(this.te.getPos(), side));
-            }, this).setStack(state != null ? new ItemStack(state.getBlock()) : ItemStack.EMPTY).xOffset(!b2 ? !b ? 2 : -2 : 0).setTooltip(tooltip -> {
+            }, this).setStackInSlot(state != null ? new ItemStack(state.getBlock()) : ItemStack.EMPTY).xOffset(!b2 ? !b ? 2 : -2 : 0).setTooltip(tooltip -> {
                 tooltip.add(new TranslationTextComponent("gui.krate.facing").mergeStyle(TextFormatting.GRAY)
                         .append(new TranslationTextComponent("gui.krate." + side.getName2()).mergeStyle(TextFormatting.DARK_GRAY)));
                 if (state1 != null) {
